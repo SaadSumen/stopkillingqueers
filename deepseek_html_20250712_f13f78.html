@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>#StopKillingQueers</title>
+    <style>
+        body {
+            background-color: black;
+            color: red;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .card {
+            border: 2px solid red;
+            border-radius: 12px;
+            padding: 20px;
+            max-width: 600px;
+            text-align: center;
+            font-size: 1.3em;
+            line-height: 1.4em;
+            user-select: none;
+        }
+        .country-name {
+            font-weight: bold;
+            font-size: 1.6em;
+            margin-bottom: 10px;
+        }
+        .law {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        .desc {
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <h1>#StopKillingQueers</h1>
+    <div class="card" id="card">
+        Loading...
+    </div>
+    <script>
+        const countries = [
+            {name: "Afghanistan", law: "Article 427", desc: "Sex between men illegal; women lack all rights; death penalty by Taliban"},
+            {name: "Brunei", law: "Sharia law", desc: "Same-sex acts punishable by stoning (selectively enforced)"},
+            {name: "Iran", law: "Articles 108–134", desc: "Sodomy and lesbianism punishable by death"},
+            {name: "Mauritania", law: "Article 308", desc: "Death penalty, but cases not recently reported"},
+            {name: "Nigeria (Northern states)", law: "Sharia law", desc: "Same-sex acts punishable by death"},
+            {name: "Qatar", law: "Technically possible", desc: "Death penalty possible but not enforced"},
+            {name: "Saudi Arabia", law: "Sharia law", desc: "Death penalty for same-sex acts"},
+            {name: "Somalia (some regions)", law: "Articles 400–410", desc: "Illegal; death penalty in regions with Sharia"},
+            {name: "Sudan", law: "Death penalty rarely applied", desc: "Sodomy illegal"},
+            {name: "UAE", law: "Theoretically possible", desc: "Any sexual activity outside marriage criminalized"},
+            {name: "Yemen", law: "Articles 264–268", desc: "Death penalty for sodomy; imprisonment for lesbian acts"},
+            {name: "Bangladesh", law: "Article 377", desc: "Unnatural offenses, up to 10 years"},
+            {name: "Gambia", law: "Articles 144–147", desc: "Criminalizes \"acts against nature\", life imprisonment"},
+            {name: "Ghana", law: "Article 104", desc: "Unnatural carnal knowledge, up to 3 years"},
+            {name: "Kenya", law: "Articles 162–165", desc: "Up to 14 years imprisonment"},
+            {name: "Malawi", law: "Up to 14 years imprisonment", desc: ""},
+            {name: "Malaysia", law: "Articles 377A, B", desc: "Up to 20 years imprisonment"},
+            {name: "Maldives", law: "Up to 8 years + flogging", desc: ""},
+            {name: "Myanmar", law: "Up to 10 years imprisonment", desc: ""},
+            {name: "Pakistan", law: "Up to 10 years, rarely enforced", desc: ""},
+            {name: "Papua New Guinea", law: "Up to 14 years imprisonment", desc: ""},
+            {name: "Sierra Leone", law: "Life imprisonment", desc: ""},
+            {name: "Sri Lanka", law: "Up to 10 years imprisonment", desc: ""},
+            {name: "Tanzania", law: "Life imprisonment", desc: ""},
+            {name: "Tuvalu", law: "Up to 14 years imprisonment", desc: ""},
+            {name: "Uganda", law: "From 2024 death penalty for \"aggressive homosexuality\", life imprisonment for relations", desc: ""},
+            {name: "Zambia", law: "Up to 15 years imprisonment", desc: ""},
+            {name: "Zimbabwe", law: "Up to 10 years imprisonment", desc: ""},
+            {name: "Algeria", law: "Up to 2 years imprisonment", desc: ""},
+            {name: "Burundi", law: "Up to 2 years imprisonment", desc: ""},
+            {name: "Cameroon", law: "Up to 5 years imprisonment", desc: ""},
+            {name: "Comoros", law: "Up to 5 years imprisonment", desc: ""},
+            {name: "Eritrea", law: "Up to 3 years imprisonment", desc: ""},
+            {name: "Eswatini (Swaziland)", law: "Illegal but not enforced", desc: ""},
+            {name: "Ethiopia", law: "Up to 15 years imprisonment", desc: ""},
+            {name: "Guinea", law: "Up to 3 years imprisonment", desc: ""},
+            {name: "Guyana", law: "Up to life imprisonment", desc: ""},
+            {name: "Jamaica", law: "Up to 10 years imprisonment", desc: ""},
+            {name: "Kiribati", law: "Up to 14 years imprisonment", desc: ""},
+            {name: "Kuwait", law: "Up to 10 years imprisonment", desc: ""},
+            {name: "Liberia", law: "Up to 1 year imprisonment", desc: ""},
+            {name: "Libya", law: "Up to 5 years imprisonment", desc: ""},
+            {name: "Morocco", law: "Up to 3 years imprisonment", desc: ""},
+            {name: "Oman", law: "Up to 3 years imprisonment", desc: ""},
+            {name: "Saint Lucia", law: "Up to 10 years imprisonment", desc: ""},
+            {name: "Senegal", law: "Up to 5 years imprisonment", desc: ""},
+            {name: "Solomon Islands", law: "Up to 14 years imprisonment", desc: ""},
+            {name: "Somaliland (unrecognized)", law: "Up to 3 years imprisonment", desc: ""},
+            {name: "Syria", law: "Up to 3 years imprisonment de jure; death penalty de facto under ISIS", desc: ""},
+            {name: "Russia (Chechnya)", law: "No direct ban but propaganda law; extrajudicial torture and killings", desc: ""}
+        ];
+
+        let currentIndex = 0;
+        const card = document.getElementById("card");
+
+        function showCountry(index) {
+            const country = countries[index];
+            card.innerHTML = `<div class="country-name">${country.name}</div>
+                              <div class="law">Law: ${country.law}</div>
+                              <div class="desc">${country.desc}</div>`;
+        }
+
+        function nextCountry() {
+            currentIndex = (currentIndex + 1) % countries.length;
+            showCountry(currentIndex);
+        }
+
+        showCountry(currentIndex);
+        setInterval(nextCountry, 5000);
+    </script>
+</body>
+</html>
